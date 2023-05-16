@@ -21,7 +21,8 @@ impl Pixels {
             matrix: [['.'; GRID_C]; GRID_R],
         }
     }
-
+    
+    //need error handling on these functions
     fn cross_pixel(&mut self, coords: &Vec<(usize, usize)>) {
         if self.matrix.len() == 0 {
             println!("pixel grid in uninitialied");
@@ -63,24 +64,8 @@ impl Pixels {
     }
 }
 
-// fn cross_pixel(pixels: &mut Pixels, col: usize, row: usize)
-// {
-//     if pixels.matrix.len() == 0
-//     {
-//         println!("pixel grid is uninitialied");
-//         return;
-//     }
 
-//     if row > GRID_R || col > GRID_C
-//     {
-//         println!("Invalid coordinates");
-//         return;
-//     }
-
-//     pixels.matrix[row-1][col-1] = 'x';
-// }
-
-// error handling on this; .unwrap() functionality or something
+// need error handling on this; .unwrap() functionality or something
 fn render_circle(pixels: &mut Pixels, radius: usize) {
     // C(x, y) = (GRID_R/2, GRID_C/2)
     let mut coords: Vec<(usize, usize)> = Vec::new(); //coordinates to be crossed
