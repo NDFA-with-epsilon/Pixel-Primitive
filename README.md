@@ -1,4 +1,4 @@
-# Current Implementations:
+#   Current Implementation(s):
 [+] Dot and Cross-y image printing to terminal
 
 # TODO
