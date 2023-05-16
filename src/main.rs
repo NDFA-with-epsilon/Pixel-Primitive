@@ -22,6 +22,16 @@ impl Pixels {
         }
     }
     
+    fn render(&self) {
+        for(_, row) in self.matrix.iter().enumerate() {
+            for(_, col) in row.iter().enumerate() {
+                print!("{} ", col);
+            }
+            
+            println!();
+        }
+    }
+
     //need error handling on these functions
     fn cross_pixel(&mut self, coords: &Vec<(usize, usize)>) {
         if self.matrix.len() == 0 {
@@ -94,19 +104,11 @@ fn render_circle(pixels: &mut Pixels, radius: usize) {
     }
 
     pixels.switch_pixel(&coords, PointPixel::Cross);
+    pixels.render();
 }
 
 fn main() {
     let mut grid: Pixels = Pixels::new();
 
-    // cross_pixel(&mut grid, 5, 3);
-    
     render_circle(&mut grid, 5);
-    
-    // for (_, r) in grid.matrix.iter().enumerate() {
-    //     for (_, c) in r.iter().enumerate() {
-    //         print!("{} ", c);
-    //     }
-    //     println!();
-    // }
 }
