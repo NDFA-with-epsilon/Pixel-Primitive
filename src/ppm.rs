@@ -9,18 +9,26 @@
 
 // use std::error::Error;
 use std::fs::File;
+use std::io::Write;
 use std::path::Path;
 
 pub struct PPM {
     /* type of file (PBM, PGM, PPM) and its enconding (ASCII or binary). For PPM: P3 and P6 */
-    pub magic_num: [u8; 2],
+    // pub magic_num: [u8; 2],
+    pub magic_num: &'static str,
 }
 
 impl PPM {
-    pub fn new(encoding: u8) -> Result<Self, &'static str> {
+    pub fn new(encoding: u32) -> Result<Self, &'static str> {
         match encoding {
-            3 | 6 => Ok(Self {
-                magic_num: ['P' as u8, encoding],
+            3 => Ok(Self {
+                // magic_num: ['P' as u8, encoding],
+                magic_num: "P3"
+            }),
+
+            6 => Ok(Self {
+                // magic_num: ['P' as u8, encoding],
+                magic_num: "P6"
             }),
 
             _ => Err("invalid params"),
@@ -42,5 +50,7 @@ impl PPM {
 
     pub fn write_to_buf(&mut self) {}
 
-    pub fn write_buf_to_ppm(&mut self, h_img: &mut File) {}
+    pub fn write_to_ppm(&mut self, h_img: &mut File) {
+        h_img.write_all(self.magic_num.as_bytes()).unwrap();
+    }
 }
