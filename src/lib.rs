@@ -1,14 +1,16 @@
 /*
-GRID_R: Horizontal length of the grid in which pixels are to be rendered
-GRID_C: Vertical length of the grid in which pixels are to be rendered
+    GRID_R: Horizontal length of the grid in which pixels are to be rendered
+    GRID_C: Vertical length of the grid in which pixels are to be rendered
 */
+
+
 
 pub const GRID_R: usize = 64;
 pub const GRID_C: usize = 48;
 
 /*
-@PointPixel:
-Defines the two values for a pixel that can be rendered
+    @PointPixel:
+    Defines the two values for a pixel that can be rendered
 */
 
 pub enum PointPixel {
@@ -17,8 +19,8 @@ pub enum PointPixel {
 }
 
 /*
-@Pixels:
-Defines a 2D array that stores u8 values: '.' (dot) and 'x' (cross)
+    @Pixels:
+    Defines a 2D array that stores u8 values: '.' (dot) and 'x' (cross)
 */
 
 pub struct Pixels {
