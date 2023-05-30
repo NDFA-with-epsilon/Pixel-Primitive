@@ -3,8 +3,6 @@
     GRID_C: Vertical length of the grid in which pixels are to be rendered
 */
 
-
-
 pub const GRID_R: usize = 64;
 pub const GRID_C: usize = 48;
 

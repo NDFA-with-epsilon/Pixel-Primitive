@@ -5,12 +5,11 @@
 
 mod ppm;
 
-use primitive_pixel::{Pixels, PointPixel, GRID_C, GRID_R};
 use ppm::PPM;
+use primitive_pixel::{Pixels, PointPixel, GRID_C, GRID_R};
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-
 
 // need error handling on this; .unwrap() functionality or something
 fn render_circle(pixels: &mut Pixels, radius: usize) {
@@ -47,12 +46,11 @@ fn render_circle(pixels: &mut Pixels, radius: usize) {
 fn main() {
     let mut grid: Pixels = Pixels::new();
 
-    //render_circle(&mut grid, 5);  
+    //render_circle(&mut grid, 5);
     let mut ppm_buf = PPM::new(3).unwrap();
-    
+
     let mut h_img = PPM::open_ppm_file("image.ppm");
 
     //write the headers and other stuff to the "h_img" .ppm file
     ppm_buf.write_buf_to_ppm(&mut h_img);
-
 }
