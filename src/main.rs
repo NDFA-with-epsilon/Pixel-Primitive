@@ -51,6 +51,7 @@ fn main() {
 
     let mut h_img = PPM::open_ppm_file("image.ppm");
 
+    ppm_buf.write_to_buf();
     //write the headers and other stuff to the "h_img" .ppm file
     ppm_buf.write_to_ppm(&mut h_img);
 }
