@@ -8,9 +8,9 @@
 */
 
 // use std::error::Error;
-use std::path::Path;
 use std::fs::File;
 use std::io::Write;
+use std::path::Path;
 
 pub struct PPM {
     /* type of file (PBM, PGM, PPM) and its enconding (ASCII or binary). For PPM: P3 and P6 */
@@ -83,21 +83,22 @@ impl PPM {
         self.rgb.push(vec![48, 32, 50, 53, 53, 32, 48, 10]);
         self.rgb.push(vec![48, 32, 48, 32, 50, 53, 53, 10]);
         self.rgb.push(vec![50, 53, 53, 32, 50, 53, 53, 32, 48, 10]);
-        self.rgb.push(vec![50, 53, 53, 32, 50, 53, 53, 32, 50, 53, 53, 10]);
+        self.rgb
+            .push(vec![50, 53, 53, 32, 50, 53, 53, 32, 50, 53, 53, 10]);
         self.rgb.push(vec![48, 32, 48, 32, 48]);
-    }   
+    }
 
     pub fn write_to_ppm(&mut self, h_img: &mut File) {
         //newline need not necessarily "look" like newline i.e. need not actually start from a new line when you open the image.ppm file. just insert newline character where a newline is supposed to start from
         h_img.write_all(&self.magic_num.as_bytes()).unwrap();
         println!("bytes written: header {:?}", &self.magic_num.as_bytes());
         // self.img_dim = [3, 32, 2, 10];
-        h_img.write_all(&self.img_dim).unwrap();     
+        h_img.write_all(&self.img_dim).unwrap();
         // println!("bytes written: dim {:?}", &self.img_dim);
-        
+
         // self.max_val = [255, 10];
         h_img.write(&self.max_val).unwrap();
-        // println!("bytes written: max_val {:?}", &self.max_val);   
+        // println!("bytes written: max_val {:?}", &self.max_val);
 
         for it in self.rgb.iter() {
             h_img.write_all(it).unwrap();
