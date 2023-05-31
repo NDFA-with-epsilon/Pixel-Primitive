@@ -1,6 +1,6 @@
 #   Current Implementation(s):
-[+] Dot and Cross-y image printing to terminal
-[+] Can now generate PPM format image
+[+] Dot and Cross-y image printing to terminal<br /> 
+[+] Can now generate PPM format image<br />
 ## TODO
-[-] Refactor ppm.rs 
-[-] Add color gradient 
+[-] Refactor ppm.rs<br /> 
+[-] Add color gradient<br />
